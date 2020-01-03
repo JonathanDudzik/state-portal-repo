@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>NC CACFP | Corrective Action Documents</title>
+        <link rel="icon" type="image/png" href="/assets/favicon.ico"/>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body class="has-navbar-fixed-top">
+        <noscript>
+            <div class="section content is-large is-padding-2-top">
+                <h3 class="has-text-dark">It appears that Javascript is not enabled on your browser. This site will not work without scripts.</h3>
+            </div>
+        </noscript>
+        <nav class="navbar is-fixed-top" role="top navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#" aria-label="return to beginning">
+                    <img src="./assets/ncdhhs-logo.png" width="276.5" height="70" alt="DHHS logo">
+                </a>
+            </div>
+        </nav>
+        <div class="min-height-full columns">   
+            <section class="section side-menu column is-2 is-padding-2-top">
+                <nav id="sideMenu" tabindex="0">
+                    <p class="menu-label">Contents</p>
+                    <ul class="menu-list" role="menu">
+                        <li><a href="#" data-selector="welcome" class="is-active" tabindex="-1" role="menuitem">Course Instructions</a></li>
+                        <li><a href="#" data-selector="firstVideo" tabindex="-1" role="menuitem">Traininng Video</a></li>
+                        <li><a href="#" data-selector="certificate" tabindex="-1" role="menuitem">Quiz and Certificate</a></li>
+                    </ul>
+                    <p class="menu-label is-padding-2-top">Module Resources</p>
+                    <ul class="menu-list">
+                        <li><a href="https://www.ecfr.gov/cgi-bin/text-idx?SID=9c3a6681dbf6aada3632967c4bfeb030&mc=true&node=pt7.4.226&rgn=div5#se7.4.226_16" target="_blank" tabindex="-1">7 CFR PART 226.6</a></li>
+                        <li><a href="https://www.nutritionnc.com/snp/pdf/cacfp/forms/fy2019/corrective-actions/CorrectiveActionPlanForm.docx" target="_blank" tabindex="-1">Corrective Action Document</a></li>
+                        <li><a href="https://www.nutritionnc.com/snp/pdf/cacfp/forms/fy2019/corrective-actions/CAP-InstitutionChecklist.docx" target="_blank" tabindex="-1">Corrective Action Document Checklist</a></li>
+                        <li><a href="https://www.nutritionnc.com/snp/index.htm/" target="_blank" tabindex="-1">NC CACFP Website</a></li>
+                        <li><a href="./assets/transcript-print.pdf" target="_blank">Download Training Transcript</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <div class="column is-10">
+                <section class="section has-invisible-outline" data-section="welcome" id="welcome" tabindex="-1">
+                    <div class="notification is-background-image">
+                        <h1 id="test" class="title is-size-4-mobile is-size-1 has-text-white">How to Complete a Corrective Action Document</h1>
+                        <h2 class="subtitle has-text-white">Child and Adult Care Food Program - Nutrition Services Branch – Division of Public Health</h2>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-8">
+                            <div class="content is-large is-padding-2-top">
+                                <h3 class="has-text-dark">Navigation Instructions</h3>
+                                <p>Use the menu to the left to navigate through the <em>CONTENTS</em> of this training module.</p>
+                                <p>Near the bottom of the menu you will find the <em>MODULE RESOURCES</em> where you can download a PDF <em>transcript</em> of the training.</p>
+                            </div>
+                        </div>
+                        <!-- <div class="column is-4"></div> -->
+                    </div>
+                </section>
+                <section id="firstVideo" data-section="firstVideo" class="my-display-none section my-min-height-full">
+                    <div class="notification content is-background-image has-text-centered">
+                        <h3 class="has-text-white">Training Video</h3>
+                        <aside>
+                            <video src="./assets/video-1.mp4" alt="screencast of filling out enrollment form" controls></video>
+                        </aside>
+                    </div>
+                </section>
+                <section class="section my-display-none has-invisible-outline" data-section="certificate" id="multi-choice-quiz" tabindex="-1">
+                    <div class="columns">
+                        <div class="column is-3 is-offset-1">
+                            <figure>
+                                <img src="./assets/quiz-ready.jpg" alt="image of words are you ready?">
+                            </figure>
+                        </div>
+                        <div class="column is-7 is-offset-1">
+                            <div id="multi-choice-quiz-vue">
+                                <div  id="quiz-content" v-bind:class="{ 'my-display-none': hideQuizContent }">
+                                    <h1 class="title">Question: {{ currentQuestion + 1 }}</h1>
+                                    <h2 class="subtitle" id="questionText">{{ questionTxt }}</h2>
+                                    <form class="field" id="quizForm">
+                                        <div class="control">
+                                            <label class="radio box" for="option-one">
+                                                <input id="option-one" type="radio" name="answer" value="0">
+                                                <span class="subtitle" id="choice1">{{ choice1 }}</span>
+                                            </label>
+                                        </div>
+                                        <br>
+                                        <div class="control">                      
+                                            <label class="radio box" for="option-two">
+                                                <input id="option-two" type="radio" name="answer" value="1">
+                                                <span class="subtitle" id="choice2">{{ choice2 }}</span>
+                                            </label>
+                                        </div>
+                                        <br>
+                                        <div class="control">
+                                            <label class="radio box" for="option-three">
+                                                <input id="option-three" type="radio" name="answer" value="2">
+                                                <span class="subtitle" id="choice3">{{ choice3 }}</span>
+                                            </label>
+                                        </div>
+                                    </form>
+                                    <br>
+                                    <div class="control">
+                                        <button class="button is-large" @click="quizSubmit()">Submit answer</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div v-bind:class="{ 'my-display-none': hideRetakeBtn }">
+                                        <p class="box is-size-3">"Your score is {{ totalScore }} out of {{ allQuestions.length }}. You must get at least 75% of the questions right in order to download the training certificate. Please click the button below to retake the quiz.</p>
+                                        <button class="button is-large" @click="reloadQuiz()">Restart Quiz</button>
+                                    </div>
+                                    <div v-bind:class="{ 'my-display-none': hideCertBtn }">
+                                        <p class="box is-size-3">"Your score is {{ totalScore }} of {{ allQuestions.length }}. You may now download your certificate.</p>
+                                        <a class="has-text-grey-darker" href="https://ncnutrition.adobeconnect.com/pxbf9fgxn1ud/" target="_blank"><button class="button is-large" >Download Certificate</button></a>
+                                    </div>
+                                </div>
+                                <div class="modal" v-bind:class="{ 'is-active': showModalClass }">
+                                    <div class="modal-background"></div>
+                                    <div class="modal-content">
+                                        <div class="content notification is-large" role="alert" aria-live="rude">
+                                            <h3 class="has-text-white">{{ quizModalHeading }}</h3>
+                                            <p class="has-text-white">{{ quizModalBody }}</p>
+                                        </div>
+                                    </div>
+                                    <button class="modal-close has-background-primary is-large" aria-label="close" @click="showModalClass = false">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+        <script type="text/javascript" src="lib/main.js"></script>
+
+    </body>
+</html>
